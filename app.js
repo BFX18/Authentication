@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 
 const app = express();
 
+
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({
@@ -16,10 +17,10 @@ app.use(bodyParser.urlencoded({
 
 mongoose.connect("mongodb://localhost:27017/userDB")
 
-const userSchema = new mongoose.Schema ({
+const userSchema = {
    email: String,
    password: String
-});
+};
 
 
 const User = new mongoose.model("User", userSchema);
